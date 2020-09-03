@@ -5,7 +5,8 @@ import {
   YAxis,
   VerticalGridLines,
   HorizontalGridLines,
-  AreaSeries
+  AreaSeries,
+  Hint
 } from 'react-vis';
 import { random } from 'faker';
 
@@ -31,6 +32,7 @@ const generateData = (num = 12) => {
 
 export const Chart = () => {
   const [data, setData] = useState(generateData())
+  const [hoverData, setHoverData] = useState(null)
   const [stacked, setStacked] = useState(true);
 
   const xyPlotPros: Record<string, string> = {};
@@ -80,6 +82,7 @@ export const Chart = () => {
       xType={"ordinal"}
       width={900}
       height={400}
+
     >
       <VerticalGridLines />
       <HorizontalGridLines />
